@@ -11,6 +11,14 @@ const category =[
     {name:'Hostel',image:'hostel.png'},
     {name:'See all',image:'seeall.png'},
 ]
+const location=[
+    {image:'photo1.png'},
+    {image:'photo2.png'},
+    {image:'photo3.png'},
+    {image:'photo4.png'},
+    {image:'photo5.png'},
+    {image:'photo1.png'},
+]
 const screen1 = () => {
     return (
         <ScrollView>
