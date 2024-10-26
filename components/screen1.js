@@ -25,9 +25,9 @@ const screen1 = () => {
 
             <View style={{ backgroundColor: '#5e45c4' }}>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, marginVertical: 20 }}>
-                    <Image style={{ height: 30, width: 30 ,borderRadius: 10}} source={require('../assets/data/logoicon.png')} />
+                    <Image style={{ height: 30, width: 30, borderRadius: 10 }} source={require('../assets/data/logoicon.png')} />
                     <View style={{ flexDirection: 'row', marginLeft: 20, backgroundColor: 'white', borderRadius: 9 }}>
-                        <TextInput style={{ width: 245,marginLeft:10 }} placeholder='Search here..'></TextInput>
+                        <TextInput style={{ width: 245, marginLeft: 10 }} placeholder='Search here..'></TextInput>
                         <Image source={require('../assets/data/findicon.png')} />
                     </View>
                 </View>
@@ -36,8 +36,8 @@ const screen1 = () => {
                     <View style={{ flexDirection: 'row', marginHorizontal: 25, marginVertical: 20 }}>
                         <Image style={{ height: 40, width: 40, borderRadius: 10 }} source={require('../assets/data/personicon.png')} />
                         <View style={{ flexDirection: 'column', marginLeft: 20 }}>
-                            <Text style={{ fontWeight: 'bold',color:'white' }}>Welcome!</Text>
-                            <Text style={{ width: 250 ,color:'white'}}>Donna Stroupe</Text>
+                            <Text style={{ fontWeight: 'bold', color: 'white' }}>Welcome!</Text>
+                            <Text style={{ width: 250, color: 'white' }}>Donna Stroupe</Text>
                         </View>
                         <View>
                             <Image style={{ height: 30, width: 30 }} source={require('../assets/data/ringicon.png')} />
@@ -46,7 +46,11 @@ const screen1 = () => {
                 </View>
             </View>
             <View style={{ height: 400 }}>
+                <View style={{ flexDirection: 'row',marginHorizontal:25,marginVertical:10 }}>
+                    <View style={{width:'50%'}}><Text style={{fontSize:20}}>Category</Text></View>
 
+                    <View  style={{width:'50%',alignItems:'flex-end'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/data/3gach.png')} /></View>
+                </View>
             </View>
             <View style={{ backgroundColor: '#5e45c4' }}>
                 <View style={{ flexDirection: 'row', gap: 40, marginVertical: 30, marginHorizontal: 50 }}>
