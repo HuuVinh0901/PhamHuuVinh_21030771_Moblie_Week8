@@ -26,7 +26,7 @@ const screen1 = () => {
             <View style={{ backgroundColor: '#5e45c4' }}>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, marginVertical: 20 }}>
                     <Image style={{ height: 30, width: 30 ,borderRadius: 10}} source={require('../assets/data/logoicon.png')} />
-                    <View style={{ flexDirection: 'row', marginLeft: 20, backgroundColor: 'white', borderRadius: 10 }}>
+                    <View style={{ flexDirection: 'row', marginLeft: 20, backgroundColor: 'white', borderRadius: 9 }}>
                         <TextInput style={{ width: 245,marginLeft:10 }} placeholder='Search here..'></TextInput>
                         <Image source={require('../assets/data/findicon.png')} />
                     </View>
