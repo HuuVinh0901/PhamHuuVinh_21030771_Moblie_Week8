@@ -1,7 +1,7 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { TouchableOpacity } from 'react-native'
-import { FlatList } from 'react-native-web'
+
 
 const category = [
     { id: 1, name: 'Resort', image: require('../assets/data/resort.png') },
@@ -23,7 +23,7 @@ const location = [
 ]
 
 const Screen1 = () => {
-    const imageMap = {
+    const imageMapCate = {
         "resort.png": require('../assets/data/resort.png'),
         "homestay.png": require('../assets/data/homestay.png'),
         "hotel.png": require('../assets/data/hotel.png'),
@@ -33,8 +33,16 @@ const Screen1 = () => {
         "hostel.png": require('../assets/data/hostel.png'),
         "seeall.png": require('../assets/data/seeall.png')
     }
-    const [cate, setCate] = useState()
-    const [loca, setLoca] = useState()
+     const imageMapLoca = {
+        "photo1.png": require('../assets/data/photo1.png'),
+        "photo2.png": require('../assets/data/photo2.png'),
+        "photo3.png": require('../assets/data/photo3.png'),
+        "photo4.png": require('../assets/data/photo4.png'),
+        "photo5.png": require('../assets/data/photo5.png'),
+        
+    }
+    const [cate, setCate] = useState([])
+    const [loca, setLoca] = useState([])
     useEffect(() => {
         fetchDataCate();
         fetchDataLocation();
@@ -57,26 +65,11 @@ const Screen1 = () => {
             console.error('Lỗi', error)
         }
     }
-    const renderCate = ({ item }) => {
-        return (
-            <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                <TouchableOpacity><Image source={imageMap[item.image]} /></TouchableOpacity>
-                <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
-            </View>
-        )
-    };
-    const renderLoca = ({ item }) => {
-        return (
-            <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                <TouchableOpacity><Image source={imageMap[item.image]} /></TouchableOpacity>
-                <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
-            </View>
-        )
-    };
+   
     return (
         <ScrollView>
 
-            <View style={{ backgroundColor: '#5e45c4' }}>
+            <View style={{ backgroundColor: '#5958b2' }}>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, marginVertical: 20 }}>
                     <Image style={{ height: 30, width: 30, borderRadius: 10 }} source={require('../assets/data/logoicon.png')} />
                     <View style={{ flexDirection: 'row', marginLeft: 20, backgroundColor: 'white', borderRadius: 9 }}>
@@ -93,7 +86,7 @@ const Screen1 = () => {
                             <Text style={{ width: 250, color: 'white' }}>Donna Stroupe</Text>
                         </View>
                         <View>
-                            <Image style={{ height: 30, width: 30 }} source={require('../assets/data/ringicon.png')} />
+                            <Image style={{ height: 40, width: 40 }} source={require('../assets/data/ringicon.png')} />
                         </View>
                     </View>
                 </View>
@@ -105,18 +98,20 @@ const Screen1 = () => {
                     <View style={{ width: '50%', alignItems: 'flex-end' }}><Image style={{ height: 30, width: 30 }} source={require('../assets/data/3gach.png')} /></View>
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, gap: 10 }}>
-                    {category.slice(0, 4).map((item) => (
+                {/* {category.slice(0, 4).map((item) => ( */}
+                    {cate.slice(0, 4).map((item) => (
                         <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                            <TouchableOpacity><Image source={item.image} /></TouchableOpacity>
+                            <TouchableOpacity><Image source={imageMapCate[item.image]} /></TouchableOpacity>
                             <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
                         </View>
                     ))}
 
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, gap: 10, marginTop: 10 }}>
-                    {category.slice(4, 8).map((item) => (
+                {/* {category.slice(4, 8).map((item) => ( */}
+                    {cate.slice(4, 8).map((item) => (
                         <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                            <TouchableOpacity><Image source={item.image} /></TouchableOpacity>
+                            <TouchableOpacity><Image source={imageMapCate[item.image]} /></TouchableOpacity>
                             <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
                         </View>
                     ))}
@@ -129,9 +124,10 @@ const Screen1 = () => {
                     <View style={{ width: '30%', alignItems: 'flex-end' }}><Image style={{ height: 30, width: 30 }} source={require('../assets/data/3gach.png')} /></View>
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, gap: 10 }}>
-                    {location.slice(0, 3).map((item) => (
+                {/* {location.slice(0, 3).map((item) => ( */}
+                    {loca.slice(0, 3).map((item) => (
                         <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                            <TouchableOpacity><Image style={{ width: 100, height: 80, borderRadius: 10, marginLeft: 5 }} source={item.image} /></TouchableOpacity>
+                            <TouchableOpacity><Image style={{ width: 100, height: 80, borderRadius: 10, marginLeft: 5 }} source={imageMapLoca[item.image]} /></TouchableOpacity>
                             <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
                         </View>
                     ))}
@@ -141,9 +137,10 @@ const Screen1 = () => {
                     <View style={{ width: '70%' }}><Text style={{ fontSize: 20 }}>Recommended</Text></View>
                 </View>
                 <View style={{ flexDirection: 'row', marginHorizontal: 25, gap: 10 }}>
-                    {location.slice(3, 5).map((item) => (
+                {/* {location.slice(3, 5).map((item) => ( */}
+                    {loca.slice(3, 5).map((item) => (
                         <View style={{ gap: 10, alignItems: 'center', justifyContent: 'center' }}>
-                            <TouchableOpacity><Image style={{ width: 160, height: 140, borderRadius: 10, marginLeft: 5 }} source={item.image} /></TouchableOpacity>
+                            <TouchableOpacity><Image style={{ width: 160, height: 140, borderRadius: 10, marginLeft: 5 }} source={imageMapLoca[item.image]} /></TouchableOpacity>
                             <Text style={{ alignItems: 'center', justifyContent: 'center' }}>{item.name}</Text>
                         </View>
                     ))}
@@ -156,7 +153,7 @@ const Screen1 = () => {
 
 
             </ScrollView>
-            <View style={{ backgroundColor: '#5e45c4' }}>
+            <View style={{ backgroundColor: '#5958b2' }}>
                 <View style={{ flexDirection: 'row', gap: 40, marginVertical: 30, marginHorizontal: 50 }}>
                     <Image style={{ height: 40, width: 40 }} source={require('../assets/data/homeicon.png')} />
                     <Image style={{ height: 40, width: 40 }} source={require('../assets/data/exploreicon.png')} />
@@ -164,11 +161,7 @@ const Screen1 = () => {
                     <Image style={{ height: 40, width: 40 }} source={require('../assets/data/profileicon.png')} />
                 </View>
             </View>
-            <FlatList data={cate} keyExtractor={(item) => item.id.toString()}
-                renderItem={renderCate}
-            >
-
-            </FlatList>
+            
         </ScrollView >
 
 
